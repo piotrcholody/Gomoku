@@ -13,6 +13,10 @@ class AbstractGame(ABC):
         pass
 
     @abstractmethod
+    def draw_board(self):
+        pass
+
+    @abstractmethod
     def player_move(self, x, y):
         pass
 
@@ -100,18 +104,7 @@ class Game(AbstractGame):
     def computer_move(self, x, y):
         if self.check_winner() == 0:
             self.board[x][y] = self.computer
-        self.tmp = ''
-        for i in range(len(self.board)):
-            self.tmp = '|'
-            for j in range(len(self.board)):
-                self.sign = ' '
-                if self.board[i][j] == 1:
-                    self.sign = 'O'
-                elif self.board[i][j] == 2:
-                    self.sign = 'X'
-                self.tmp += self.sign + " |"
-            print(self.tmp)
-
+        self.draw_board()
 
     def is_position_valid(self, x, y):
         if self.board[x][y] == 0:
@@ -119,5 +112,16 @@ class Game(AbstractGame):
         else:
             return False
 
-
-
+    def draw_board(self):
+        self.temp = ''
+        for i in range(len(self.board)):
+            self.temp += '|'
+            for j in range(len(self.board)):
+                self.sign = ' '
+                if self.board[i][j] == 1:
+                    self.sign = 'O'
+                elif self.board[i][j] == 2:
+                    self.sign = 'X'
+                self.temp += self.sign + " |"
+            self.temp += '\n'
+        return self.temp
