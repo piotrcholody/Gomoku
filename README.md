@@ -1,2 +1,2 @@
 # PItE-lab03
-to be continued :<
+client server is working but still need tests and polishing
