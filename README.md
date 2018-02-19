@@ -1,2 +1,4 @@
 # Gomoku
-client server is working but still need tests and polishing
+Console Gomoku game written in python.
+
+- client server is working but still needs tests and polishing
